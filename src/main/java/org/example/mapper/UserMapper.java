@@ -16,4 +16,16 @@ public class UserMapper {
                 user.getExpirationDate()
         );
     }
+
+    public static User toUser(UserDto userDto) {
+        return new User(
+                userDto.id(),
+                userDto.firstName(),
+                userDto.lastName(),
+                userDto.identificationDocument(),
+                userDto.nationality(),
+                userDto.registrationDate(),
+                userDto.expirationDate()
+        );
+    }
 }

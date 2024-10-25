@@ -35,6 +35,16 @@ public class User {
         this.expirationDate = expirationDate;
     }
 
+    public User(Long id, String firstName, String lastName, String identificationDocument, String nationality, LocalDate registrationDate, LocalDate expirationDate) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.identificationDocument = identificationDocument;
+        this.nationality = nationality;
+        this.registrationDate = registrationDate;
+        this.expirationDate = expirationDate;
+    }
+
     public Long getId() {
         return id;
     }

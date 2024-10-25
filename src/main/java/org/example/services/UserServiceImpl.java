@@ -31,13 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(UserDto userDto) {
-        User user = new User();
-        user.setFirstName(userDto.firstName());
-        user.setLastName(userDto.lastName());
-        user.setIdentificationDocument(userDto.identificationDocument());
-        user.setNationality(userDto.nationality());
-        user.setRegistrationDate(userDto.registrationDate());
-        user.setExpirationDate(userDto.expirationDate());
+        User user = UserMapper.toUser(userDto);
         return userRepository.save(user);
     }
 
