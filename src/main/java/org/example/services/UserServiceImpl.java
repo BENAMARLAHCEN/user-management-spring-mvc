@@ -1,4 +1,10 @@
 package org.example.services;
 
-public class UserServiceImpl {
+import org.example.entities.User;
+import org.example.repositories.UserRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+public class UserServiceImpl implements UserService {
 }
