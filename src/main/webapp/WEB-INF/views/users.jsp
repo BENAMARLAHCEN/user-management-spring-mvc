@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.entities.User" %>
+<%@ page import="org.example.dto.UserDto" %>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -11,7 +12,7 @@
     <h2>User Management System</h2>
 
     <div class="mb-3">
-        <a href="/users/new" class="btn btn-primary">Add New User</a>
+        <a href="<%= request.getContextPath() %>/users/new" class="btn btn-primary">Add New User</a>
     </div>
 
     <table class="table table-bordered">
@@ -28,20 +29,20 @@
         </tr>
         </thead>
         <tbody>
-        <% List<User> users = (List<User>) request.getAttribute("users");
+        <% List<UserDto> users = (List<UserDto>) request.getAttribute("users");
         if (users != null) { %>
-        <%for (User user : users) { %>
+        <%for (UserDto user : users) { %>
         <tr>
-            <td><%= user.getId() %></td>
-            <td><%= user.getFirstName() %></td>
-            <td><%= user.getLastName() %></td>
-            <td><%= user.getIdentificationDocument() %></td>
-            <td><%= user.getNationality() %></td>
-            <td><%= user.getRegistrationDate() %></td>
-            <td><%= user.getExpirationDate() %></td>
+            <td><%= user.id() %></td>
+            <td><%= user.firstName() %></td>
+            <td><%= user.lastName() %></td>
+            <td><%= user.identificationDocument() %></td>
+            <td><%= user.nationality() %></td>
+            <td><%= user.registrationDate() %></td>
+            <td><%= user.expirationDate() %></td>
             <td>
-                <a href="/users/edit?id=<%= user.getId() %>" class="btn btn-warning">Edit</a>
-                <a href="/users/delete?id=<%= user.getId() %>" class="btn btn-danger">Delete</a>
+                <a href="<%= request.getContextPath() %>/users/edit/<%= user.id() %>" class="btn btn-warning">Edit</a>
+                <a href="<%= request.getContextPath() %>/users/delete/<%= user.id() %>" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         <% } %>
